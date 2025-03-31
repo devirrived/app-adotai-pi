@@ -3,6 +3,10 @@ import { StyleSheet, Text, View, TextInput, TouchableHighlight } from 'react-nat
 
 export default class Input extends React.Component {
 
+    fetchData () {
+        console.log('this is the value: ', this.props.value)
+    }      
+
     render() {
 
         return (
@@ -15,6 +19,14 @@ export default class Input extends React.Component {
                 // text will be what the user types in
                 onChangeText={(text) => this.props.onChange(text)}
                 />
+                <TouchableHighlight
+                  style={styles.button}
+                  onPress={() => this.fetchData()}
+                >
+                    <Text
+                     style={styles.text}
+                    >Search</Text>
+                </TouchableHighlight>
             </View>
         )
     }    
@@ -31,9 +43,18 @@ const styles = StyleSheet.create({
         height: 40,
         width: 300,
         borderColor: 'gray',
+        borderWidth: 2,
     },
-    buttonText: {
-        color: '#fff',
-        textAlign: 'center',
+    button: {
+        backgroundColor: 'blue',
+        height: 40,
+        width: 100,
+        borderColor: 'gray',
+        borderRadius: 5,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
-});
+    text: {
+        color: 'white'
+    }
+})

@@ -1,9 +1,14 @@
-import { Image, StyleSheet, Platform, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { Image, StyleSheet, Platform, TouchableOpacity, Text, View, TouchableHighlight } from 'react-native';
 
+
+import Input from '@/components/Input/Input';
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+
+// export default class App extends React.Component {
 
 export default function HomeScreen() {
   return (
@@ -16,12 +21,19 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
+        <Input
+          value={this.state.value}
+          onChange={(value) => this.setState({ value: value })}
+          />
         <ThemedText type="title">Welcome, grupo da UNIVESP!</ThemedText>
         <HelloWave />
       </ThemedView>
-      <TouchableOpacity style={styles.button} onPress={() => alert('Botão clicado!')}>
+      <TouchableHighlight style={styles.button} 
+      underlayColor="#ddd"
+      onPress={() => console.log('botao clicado')}
+>
         <ThemedText type="default">Submit</ThemedText>
-      </TouchableOpacity>
+      </TouchableHighlight>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>
