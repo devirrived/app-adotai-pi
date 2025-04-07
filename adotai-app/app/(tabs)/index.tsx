@@ -24,7 +24,7 @@ export default function HomeScreen() {
         {/* Passando o estado e a função de atualização para o componente Input */}
         <Input
           value={inputValue}
-          onChange={(value) => setInputValue(value)}
+          onChange={(value: string) => setInputValue(value)}
         />
         <ThemedText type="title">Welcome, grupo da UNIVESP!</ThemedText>
         <HelloWave />
