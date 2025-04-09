@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, Platform, TouchableHighlight } from 'react-native';
 
-import Input from '@/components/input/Input';
+import Input from '@/components/Input/Input';
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
