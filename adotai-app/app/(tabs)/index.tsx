@@ -6,6 +6,7 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import logo from '@/assets/images/logo.png'; // Importando o logo no topo do arquivo
 
 export default function HomeScreen() {
   // Usando useState para gerenciar o valor do input
@@ -16,7 +17,7 @@ export default function HomeScreen() {
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={logo} // Usando o logo aqui
           style={styles.reactLogo}
         />
       }>
@@ -54,6 +55,9 @@ export default function HomeScreen() {
     </ParallaxScrollView>
   );
 }
+//Removi a linha export default Header;
+// Essa linha estava fora de contexto e causava o erro.
+// Mantido o uso do logo no headerImage no componente Image
 
 const styles = StyleSheet.create({
   titleContainer: {
