@@ -17,8 +17,8 @@ export default function HomeScreen() {
   useEffect(() => {
     // Inicia a animação ao abrir o app
     Animated.timing(scaleAnim, {
-      toValue: 1,
-      duration: 1500,
+      toValue: 2,
+      duration: 3000,
       easing: Easing.bounce,
       useNativeDriver: true,
     }).start(() => setShowContent(true)); // Mostra o conteúdo principal após a animação
