@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Image, StyleSheet, Platform, TouchableHighlight } from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
+import { Image, StyleSheet, Platform, TouchableHighlight, View, Animated, Easing } from 'react-native';
 
 import Input from '@/components/Input/Input';
 import { HelloWave } from '@/components/HelloWave';
@@ -8,9 +8,42 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import logo from '@/assets/images/logo.png'; // Importando o logo no topo do arquivo
 
+// Add animação de logo 
 export default function HomeScreen() {
-  // Usando useState para gerenciar o valor do input
   const [inputValue, setInputValue] = useState('');
+  const [showContent, setShowContent] = useState(false); // Controla a exibição do conteúdo principal
+  const scaleAnim = useRef(new Animated.Value(0)).current; // Animação de escala
+
+  useEffect(() => {
+    // Inicia a animação ao abrir o app
+    Animated.timing(scaleAnim, {
+      toValue: 1,
+      duration: 1500,
+      easing: Easing.bounce,
+      useNativeDriver: true,
+    }).start(() => setShowContent(true)); // Mostra o conteúdo principal após a animação
+  }, []);
+
+  if (!showContent) {
+    // Tela de animação inicial
+    return (
+      <View style={styles.splashContainer}>
+        <Animated.View
+          style={[
+            styles.logoContainer,
+            { transform: [{ scale: scaleAnim }] },
+          ]}
+        >
+          <Image source={logo} style={styles.logo} />
+        </Animated.View>
+      </View>
+    );
+  }
+//Fim da animação do logo
+
+
+  // Usando useState para gerenciar o valor do input
+  
 
   return (
     <ParallaxScrollView
@@ -60,6 +93,20 @@ export default function HomeScreen() {
 // Mantido o uso do logo no headerImage no componente Image
 
 const styles = StyleSheet.create({
+  splashContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  logoContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 100,
+    height: 100,
+  },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
