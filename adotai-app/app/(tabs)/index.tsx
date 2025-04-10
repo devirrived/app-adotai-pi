@@ -23,7 +23,7 @@ export default function HomeScreen() {
       easing: Easing.bounce,
       useNativeDriver: true,
     }).start(() => setShowContent(true)); // Mostra o conteúdo principal após a animação
-  }, []);
+  }, []); // Certifique-se de que o bloco useEffect está corretamente fechado
 
   if (!showContent) {
     // Tela de animação inicial
@@ -40,12 +40,8 @@ export default function HomeScreen() {
       </View>
     );
   }
-//Fim da animação do logo
 
-
-  // Usando useState para gerenciar o valor do input
-  
-
+  // Conteúdo principal do app
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -56,7 +52,6 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        {/* Passando o estado e a função de atualização para o componente Input */}
         <Input
           value={inputValue}
           onChange={(value: string) => setInputValue(value)}
@@ -89,25 +84,21 @@ export default function HomeScreen() {
     </ParallaxScrollView>
   );
 }
-//Removi a linha export default Header;
-// Essa linha estava fora de contexto e causava o erro.
-// Mantido o uso do logo no headerImage no componente Image
-
 
 const styles = StyleSheet.create({
   splashContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#025E73', // Cor alterada para  claro
+    backgroundColor: '#025E73', // Cor alterada para claro
   },
   logoContainer: {
     justifyContent: 'center',
     alignItems: 'center',
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: 200,
+    height: 200,
   },
   titleContainer: {
     flexDirection: 'row',
@@ -129,5 +120,4 @@ const styles = StyleSheet.create({
     left: 0,
     position: 'absolute',
   },
-});
-
+}); 
