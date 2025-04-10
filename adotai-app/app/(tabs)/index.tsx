@@ -7,6 +7,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import logo from '@/assets/images/logo.png'; // Importando o logo no topo do arquivo
+import logoRedondo from '@/assets/images/logo-redondo.png'; // Importando o logo redondo com um nome diferente
 
 // Add animação de logo 
 export default function HomeScreen() {
@@ -34,7 +35,7 @@ export default function HomeScreen() {
             { transform: [{ scale: scaleAnim }] },
           ]}
         >
-          <Image source={logo} style={styles.logo} />
+          <Image source={logoRedondo} style={styles.logo} />
         </Animated.View>
       </View>
     );
@@ -92,12 +93,13 @@ export default function HomeScreen() {
 // Essa linha estava fora de contexto e causava o erro.
 // Mantido o uso do logo no headerImage no componente Image
 
+
 const styles = StyleSheet.create({
   splashContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#025E73', // Cor alterada para  claro
   },
   logoContainer: {
     justifyContent: 'center',
@@ -128,3 +130,4 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
 });
+
