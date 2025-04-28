@@ -42,47 +42,48 @@ export default function HomeScreen() {
   }
 
   // Conteúdo principal do app
-  return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={logo} // Usando o logo aqui
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <Input
-          value={inputValue}
-          onChange={(value: string) => setInputValue(value)}
-        />
-        <ThemedText type="title">Welcome, grupo da UNIVESP!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <TouchableHighlight
-        style={styles.button}
-        underlayColor="#ddd"
-        onPress={() => console.log('botao clicado')}
-      >
-        <ThemedText type="default">Submit</ThemedText>
-      </TouchableHighlight>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
-  );
+
+return (
+  <ParallaxScrollView
+    headerBackgroundColor={{ light: '#FFFFFF', dark: '#FFFFFF' }} // Fundo branco para o cabeçalho
+    headerImage={
+      <Image
+        source={logo} // Usando o logo aqui
+        style={styles.reactLogo}
+      />
+    }>
+    <ThemedView style={[styles.titleContainer, { backgroundColor: '#FFFFFF' }]}>
+      <Input
+        value={inputValue}
+        onChange={(value: string) => setInputValue(value)}
+      />
+      <ThemedText type="title">Welcome, grupo da UNIVESP!</ThemedText>
+      <HelloWave />
+    </ThemedView>
+    <TouchableHighlight
+      style={[styles.button, { backgroundColor: '#FFFFFF' }]}
+      underlayColor="#ddd"
+      onPress={() => console.log('botao clicado')}
+    >
+      <ThemedText type="default">Submit</ThemedText>
+    </TouchableHighlight>
+    <ThemedView style={[styles.stepContainer, { backgroundColor: '#FFFFFF' }]}>
+      <ThemedText type="subtitle">Step 1: Try it</ThemedText>
+      <ThemedText>
+        Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
+        Press{' '}
+        <ThemedText type="defaultSemiBold">
+          {Platform.select({
+            ios: 'cmd + d',
+            android: 'cmd + m',
+            web: 'F12',
+          })}
+        </ThemedText>{' '}
+        to open developer tools.
+      </ThemedText>
+    </ThemedView>
+  </ParallaxScrollView>
+);
 }
 
 const styles = StyleSheet.create({
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#025E73', // Cor alterada para claro
+    backgroundColor: '#025E73', // Cor alterada para azul claro (página da animação)
   },
   logoContainer: {
     justifyContent: 'center',
@@ -106,8 +107,21 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   button: {
-    width: 100,
+    width: 100, // Ajuste do tamanho do botão
     height: 50,
+    marginTop: 16,
+    marginBottom: 16,
+    borderRadius: 8, // Bordas arredondadas para um design mais moderno
+    borderWidth: 1, // Borda para destacar o botão
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF', // Fundo branco
+    borderColor: '#CCCCCC', // Cor da borda
+  },
+  buttonText: {
+    color: '#000000', // Texto preto para contraste
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   stepContainer: {
     gap: 8,
@@ -120,4 +134,4 @@ const styles = StyleSheet.create({
     left: 0,
     position: 'absolute',
   },
-}); 
+});
