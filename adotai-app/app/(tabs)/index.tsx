@@ -52,40 +52,40 @@ return (
         style={styles.reactLogo}
       />
     }>
-    <ThemedView style={[styles.titleContainer, { backgroundColor: '#FFFFFF' }]}>
-      <Input
-        value={inputValue}
-        onChange={(value: string) => setInputValue(value)}
-      />
-      <ThemedText type="title">Welcome, grupo da UNIVESP!</ThemedText>
-      <HelloWave />
-    </ThemedView>
-    <TouchableHighlight
-      style={[styles.button, { backgroundColor: '#FFFFFF' }]}
-      underlayColor="#ddd"
-      onPress={() => console.log('botao clicado')}
-    >
-      <ThemedText type="default">Submit</ThemedText>
-    </TouchableHighlight>
-    <ThemedView style={[styles.stepContainer, { backgroundColor: '#FFFFFF' }]}>
-      <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-      <ThemedText>
-        Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-        Press{' '}
-        <ThemedText type="defaultSemiBold">
-          {Platform.select({
-            ios: 'cmd + d',
-            android: 'cmd + m',
-            web: 'F12',
-          })}
-        </ThemedText>{' '}
-        to open developer tools.
-      </ThemedText>
-    </ThemedView>
-  </ParallaxScrollView>
-);
+  <ThemedView style={[styles.titleContainer, { backgroundColor: '#FFFFFF' }]}>
+  <Input
+    value={inputValue}
+    onChange={(value: string) => setInputValue(value)}
+  />  {/* Corrigido o fechamento da tag */}
+  <ThemedText type="title">Welcome, grupo da UNIVESP!</ThemedText>
+  <HelloWave /> 
+</ThemedView> {/* Corrigido o fechamento da tag */}
+<TouchableHighlight
+  style={[styles.button, { backgroundColor: '#FFFFFF' }]}
+  underlayColor="#ddd"
+  onPress={() => console.log('botao clicado')}
+>
+  <ThemedText type="default">Submit</ThemedText>
+</TouchableHighlight>
+<ThemedView style={[styles.stepContainer, { backgroundColor: '#FFFFFF' }]}>
+  <ThemedText type="subtitle">Step 1: Try it</ThemedText>
+  <ThemedText>
+    Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
+    Press{' '}
+    <ThemedText type="defaultSemiBold">
+      {Platform.select({
+        ios: 'cmd + d',
+        android: 'cmd + m',
+        web: 'F12',
+      })}
+    </ThemedText>{' '}
+    to open developer tools.
+  </ThemedText>
+</ThemedView> 
+</ParallaxScrollView>
+  );
 }
-
+// Estilos para o componente  
 const styles = StyleSheet.create({
   splashContainer: {
     flex: 1,
