@@ -1,74 +1,35 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 export default function Input({ value, onChange }) {
-    return (
-      <View>
-        <TextInput
-          style={styles.input}
-          value={value}
-          onChangeText={onChange} // Chama a função passada como prop
-        />
-        <Text
-          style={styles.text}
-        >Search</Text>
-      </View>
-    );
-  }
+  return (
+    <View>
+      <TextInput
+        style={inputStyles.input}
+        value={value}
+        onChangeText={onChange} // Chama a função passada como prop
+      />
+      <Text style={inputStyles.text}>Search</Text>
+    </View>
+  );
+}
 
-// export default class Input extends React.Component {
-//     // fetchData () {
-//     //     console.log('this is the value: ', this.props.value)
-//     // }      
-
-//     render() {
-
-//         return (
-//             <View style={styles.container}>
-//                 <TextInput 
-//                 keyboardType={'numeric'}
-//                 value={this.props.value}
-//                 style={styles.input}
-//                 //track changes in text, when someone types in the input field
-//                 // text will be what the user types in
-//                 onChangeText={(text) => this.props.onChange(text)}
-//                 />
-//                 <TouchableHighlight
-//                   style={styles.button}
-//                   onPress={() => this.fetchData()}
-//                 >
-//                     
-//                 </TouchableHighlight>
-//             </View>
-//         )
-//     }    
-// } 
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1, // take all available hight space 
-        backgroundColor: 'white',
-        alignItems: 'center', //horizontally align
-        justifyContent: 'center', //vertically align
-    },
-    input: {
-        height: 40,
-        width: 300,
-        borderColor: 'gray',
-        borderWidth: 2,
-        color: 'white',
-        // paddingHorizontal: 8,
-    },
-    button: {
-        backgroundColor: 'blue',
-        height: 40,
-        width: 100,
-        borderColor: 'gray',
-        borderRadius: 5,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    text: {
-        color: 'white'
-    }
-})
+const inputStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  input: {
+    height: 40,
+    width: 300,
+    borderColor: 'gray',
+    borderWidth: 2,
+    color: 'black', // Alterado para preto para melhor visibilidade
+    paddingHorizontal: 8,
+  },
+  text: {
+    color: 'black', // Alterado para preto para melhor visibilidade
+  },
+});
