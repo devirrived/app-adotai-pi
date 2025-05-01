@@ -3,6 +3,7 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": null,
+  // Este campo é usado para especificar a aleatoriedade da URL; uma string vazia indica que não há aleatoriedade.
+  "useHttps": false,
   "https": false
 }
